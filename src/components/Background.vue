@@ -1,5 +1,7 @@
 <template>
-  <div class="background"><slot></slot></div>
+  <div class="background">
+    <slot></slot>
+  </div>
 </template>
 
 <style lang="scss">

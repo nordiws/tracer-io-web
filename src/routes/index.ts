@@ -1,8 +1,7 @@
 import HelloWorld from "../components/HelloWorld.vue"
 import { createRouter, createWebHashHistory } from "vue-router"
+import Login from "../pages/login.vue"
 
-
-const Login = { template: '<div>Login</div>' }
 
 const routes = [
     { path: '/', component: HelloWorld },
@@ -15,5 +14,5 @@ export const router = createRouter({
 })
 
 router.afterEach((to) => {
-    console.log(to);
+    console.log("afterEach", to);
 })

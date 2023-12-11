@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { NCard } from "naive-ui";
+import { ref } from 'vue';
+import { NCard } from 'naive-ui';
 
 const count = ref(0);
 </script>
@@ -333,6 +333,7 @@ const count = ref(0);
   color: #888;
 }
 .hello {
-  margin-top: 100px;
+  margin-top: 50px;
+  border-radius: 15px;
 }
 </style>

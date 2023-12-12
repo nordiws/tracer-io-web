@@ -17,7 +17,6 @@ const login = () => {
     <n-input round placeholder="username" />
     <n-input round placeholder="password" />
     <n-button text>forgot your password?</n-button>
-    <n-divider></n-divider>
     <n-button color="white" text-color="black" @click="login">
       <template #icon>
         <n-icon>
@@ -26,6 +25,7 @@ const login = () => {
       </template>
       LOGIN
     </n-button>
+    <n-divider></n-divider>
     <n-button color="white" text-color="black">
       <template #icon>
         <n-icon>

@@ -1,13 +1,22 @@
 <script setup lang="ts">
-import { NPageHeader, NAffix, NIcon, NCard } from 'naive-ui';
+import MenuDrawer from './MenuDrawer.vue';
 import { useNavHeaderStore } from '../stores/navHeader';
+import { useMenuDrawerStore } from '../stores/menuDrawer';
+import { NPageHeader, NAffix, NIcon, NButton } from 'naive-ui';
+
 import HomeRound from '@vicons/material/HomeRound.js';
-import SearchSharp from '@vicons/material/SearchSharp.js';
 import MenuSharp from '@vicons/material/MenuSharp.js';
+/* import SearchSharp from '@vicons/material/SearchSharp.js'; */
+
+const menuStore = useMenuDrawerStore();
 const store = useNavHeaderStore();
-const handleBack = () => {
+
+function handleBack() {
   console.log('handleBack');
-};
+}
+/* function handleSearch() {
+  console.log('handleSearch');
+} */
 </script>
 
 <template>
@@ -22,33 +31,31 @@ const handleBack = () => {
         <n-icon size="24"><HomeRound /></n-icon>
       </template>
       <template #extra>
-        <n-icon size="24" style="margin-top: 5px"><SearchSharp /></n-icon>
-        <n-icon size="24" style="margin-top: 5px; margin-left: 5px">
-          <MenuSharp />
-        </n-icon>
+        <!--         <n-button text @click="handleSearch">
+          <n-icon size="24" style="margin-top: 5px"><SearchSharp /></n-icon>
+        </n-button> -->
+        <n-button text @click="menuStore.open()">
+          <n-icon size="24" style="margin-top: 5px; margin-left: 5px">
+            <MenuSharp />
+          </n-icon>
+        </n-button>
       </template>
     </n-page-header>
   </n-affix>
-  <n-card v-if="$route.path !== '/login'" class="main"><slot></slot> </n-card>
-  <slot v-else></slot>
+  <menu-drawer />
+  <slot></slot>
 </template>
 
 <style lang="scss">
 .nav-header {
   height: 50px;
   width: 100vw;
-  background-color: #a9e996;
-  //border-radius only bottom corners
+  background-color: #bbebad;
   border-radius: 0 0 5px 5px;
   z-index: 100;
   position: fixed;
 }
 .page-header {
   margin: 6px 15px;
-}
-.main {
-  margin-top: 55px;
-  border-radius: 15px 15px 0 0;
-  min-height: 100vh;
 }
 </style>
